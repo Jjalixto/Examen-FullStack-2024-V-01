@@ -1,0 +1,24 @@
+<div class="p-4">
+    <h1 class="text-2xl font-bold mb-4">Tus Pedidos</h1>
+
+    <!-- Botón para regresar a productos -->
+    <button (click)="redirect.navigate(['/productos'])" class="bg-blue-500 text-white px-4 py-2 rounded mb-4">
+        Regresar a Productos
+    </button>
+
+    <div *ngIf="pedidos.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div *ngFor="let pedido of pedidos" class="bg-white shadow-md rounded-lg p-4">
+            <strong class="text-lg">Pedido ID: {{ pedido.pedidoId }}</strong>
+            <p class="mt-2">Productos: {{ pedido.productos.join(', ') }}</p>
+            <p class="mt-2">Total: ${{ pedido.total }}</p>
+            <p class="mt-2">Fecha: {{ pedido.fechaPedido }}</p>
+            <button (click)="redirect.navigate(['/editar-pedido', pedido.pedidoId])" class="bg-yellow-500 text-white px-4 py-2 rounded mt-2">
+                Editar
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="pedidos.length === 0">
+        <p>No tienes pedidos.</p>
+    </div>
+</div>

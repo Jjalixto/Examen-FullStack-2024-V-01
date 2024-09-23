@@ -1,0 +1,36 @@
+<div class="p-4">
+    <div class="relative mb-6">
+        <h1 class="text-2xl font-bold mb-4">Productos</h1>
+        <h2 class="text-lg mb-2">Bienvenido, {{ nombre }}<i class="fa-solid fa-circle-user ml-2"></i></h2>
+        <p class="mb-6 hidden">Tu código es: <span class="font-semibold">{{ id }}</span></p>
+        <button (click)="verPedidos()"
+            class="absolute top-0 right-0 mt-4 mr-4 bg-blue-500 text-white px-4 py-1 rounded-full flex items-center">
+            <i class="fa-solid fa-truck-fast mr-1"></i>
+            Pedidos
+        </button>
+        <button (click)="router.navigate(['/carrito'])"
+            class="absolute top-0 right-0 mt-4 mr-36 bg-blue-500 text-white px-4 py-1 rounded-full flex items-center">
+            <i class="fas fa-shopping-cart mr-1"></i>
+            Productos {{contadorCarrito}}
+        </button>
+    </div>
+
+    <div *ngIf="productos.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div *ngFor="let producto of productos" class="bg-white border rounded-lg shadow-sm p-4">
+            <strong class="text-lg">{{ producto.nombre }}</strong><br>
+            <span class="text-gray-700">Descripción: {{ producto.descripcion }}</span><br>
+            <span class="text-gray-800">Precio: ${{ producto.precio }}</span><br>
+            <span class="text-gray-800">Stock: {{ producto.stock }}</span>
+            <button (click)="addToCar(producto)" class="mt-2 ml-4 bg-blue-500 text-white px-4 py-2 rounded">
+                <i class="fas fa-shopping-cart mr-1"></i>Añadir al carrito
+            </button>
+        </div>
+    </div>
+    <button (click)="cerrarSesion()" class="bg-red-500 text-white px-4 py-2 rounded mt-4 ml-4">
+        Cerrar Sesión
+    </button>
+
+    <div *ngIf="productos.length === 0" class="text-center p-4">
+        <p class="text-gray-500">No hay productos disponibles.</p>
+    </div>
+</div>

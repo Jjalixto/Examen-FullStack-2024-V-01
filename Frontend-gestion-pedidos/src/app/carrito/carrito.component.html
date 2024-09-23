@@ -1,0 +1,24 @@
+<h1 class="text-2xl font-bold mb-4">Carrito de Compras</h1>
+<button (click)="router.navigate(['/productos'])" class="absolute top-0 right-0 mt-4 mr-4 bg-blue-500 text-white px-4 py-1 rounded-full flex items-center">
+    <i class="fa-solid fa-house"></i>
+    Home
+</button>
+
+
+<button (click)="generarPedido()" class="absolute top-0 right-0 mt-4 mr-32 bg-blue-500 text-white px-7 mx-1 py-1 rounded-full flex items-center">
+    <i class="fa-solid fa-file-export"></i>
+    Generar pedido
+</button>
+<div *ngIf="productosSeleccionados.length > 0">
+    <ul>
+        <li *ngFor="let producto of productosSeleccionados">
+            <strong>{{ producto.nombre }}</strong><br>
+            Descripción: {{ producto.descripcion }}<br>
+            Precio: ${{ producto.precio }}<br>
+            <hr>
+        </li>
+    </ul>
+</div>
+<div *ngIf="productosSeleccionados.length === 0">
+    <p>No hay productos en el carrito.</p>
+</div>
