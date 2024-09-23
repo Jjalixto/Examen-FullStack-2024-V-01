@@ -67,7 +67,7 @@ export class ProductosComponent implements OnInit {
     }
 
     // Redirige a la vista de pedidos, pasando el clienteId como parámetro
-    this.router.navigate(['/pedido', {clienteId}]);
+    this.router.navigate(['/pedido', clienteId]);
   }
 
   cerrarSesion() {

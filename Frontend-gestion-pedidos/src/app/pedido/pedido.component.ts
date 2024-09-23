@@ -24,11 +24,12 @@ export class PedidoComponent implements OnInit {
 
     ngOnInit(): void {
       this.route.params.subscribe(params => {
-        this.clienteId = +params['clienteId']; // Obtén el clienteId
-        this.cargarPedidos(); // Método para cargar los pedidos
-        this.guardarPedido(); // Mueve esta línea aquí
+          this.clienteId = +params['clienteId']; // Obtén el clienteId
+          this.cargarPedidos(); // Método para cargar los pedidos
       });
-    }
+  
+      this.guardarPedido(); // Mueve esta línea fuera del subscribe, si es independiente
+  }
 
   async guardarPedido() {
     // Aquí recuperas el clienteId y los productos del localStorage

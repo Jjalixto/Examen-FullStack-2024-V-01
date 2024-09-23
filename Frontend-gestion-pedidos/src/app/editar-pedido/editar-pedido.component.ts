@@ -1,14 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../../api.service';
+import { PedidoResponse } from '../pedido/pedido-response.model';
 
 @Component({
-    selector: 'app-editar-pedido',
-    standalone: true,
-    imports: [CommonModule],
-    templateUrl: './editar-pedido.component.html',
-    styleUrls: ['./editar-pedido.component.css']
+  selector: 'app-editar-pedido',
+  templateUrl: './editar-pedido.component.html',
+  styleUrls: ['./editar-pedido.component.css']
 })
-export class EditarPedidoComponent{
-  constructor(public route: Router){}
+export class EditarPedidoComponent {
 }
